@@ -1,0 +1,175 @@
+/* 
+DOJO G
+
+- Eduardo Cruz
+- Pilar Flores
+- Lian Giaccone
+- Antony Llactarima
+- Agustín Forestieri
+*/
+
+
+#define ledIndependencia 1
+#define ledSanJuan 2
+#define ledConstitucion 3
+#define ledMoreno 0
+#define boton 12
+#define buzzer 13
+
+#define ROJO 5
+#define NARANJA 6
+#define AMARILLO 7
+#define CELESTE 8
+#define AZUL 11
+#define VIOLETA 10
+#define FUCSIA 9
+
+int estadoBoton;
+int contador = 0;
+
+void setup()
+{
+  pinMode(ledConstitucion, OUTPUT);
+  pinMode(ledSanJuan, OUTPUT);
+  pinMode(ledIndependencia, OUTPUT);
+  pinMode(ledMoreno, OUTPUT);
+  pinMode(boton, INPUT_PULLUP);
+  pinMode(FUCSIA, OUTPUT);
+  pinMode(AZUL, OUTPUT);
+  pinMode(ROJO, OUTPUT);
+  pinMode(VIOLETA, OUTPUT);
+  pinMode(NARANJA, OUTPUT);
+  pinMode(AMARILLO,OUTPUT);
+  pinMode(CELESTE, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+
+}
+
+void loop()
+{
+  estadoBoton = digitalRead(boton);
+  
+  
+  if (estadoBoton==0) {
+  
+    
+  
+
+ 
+    switch(contador){
+
+      case 0:
+
+        digitalWrite(ledConstitucion, LOW);
+        digitalWrite(ledSanJuan, LOW);
+        digitalWrite(ledIndependencia, LOW);
+        digitalWrite(ledMoreno, LOW);
+        delay(1000);
+        break;
+
+      case 1:
+        tone(buzzer, 300, 250); 
+
+        digitalWrite(ledConstitucion, HIGH);
+        digitalWrite(ledSanJuan, LOW);
+        digitalWrite(ledIndependencia, LOW);
+        digitalWrite(ledMoreno, LOW);
+
+        //3
+        digitalWrite(AMARILLO, HIGH);
+        digitalWrite(CELESTE, HIGH);
+        digitalWrite(ROJO, HIGH);
+        digitalWrite(FUCSIA, HIGH);
+        digitalWrite(VIOLETA, HIGH);
+        delay(1000);
+        digitalWrite(AMARILLO, 0);
+        digitalWrite(CELESTE, 0);
+        digitalWrite(ROJO, 0);
+        digitalWrite(FUCSIA, 0);
+        digitalWrite(VIOLETA, 0);
+        delay(100);
+
+
+
+        break;
+
+      case 2:
+
+        tone(buzzer, 500, 250);
+
+        digitalWrite(ledConstitucion, LOW);
+        digitalWrite(ledSanJuan, HIGH);
+        digitalWrite(ledIndependencia, LOW);
+        digitalWrite(ledMoreno, LOW);
+
+      //2
+        digitalWrite(AMARILLO, HIGH);
+        digitalWrite(CELESTE, HIGH);
+        digitalWrite(ROJO, HIGH);
+        digitalWrite(AZUL, HIGH);
+        digitalWrite(VIOLETA, HIGH);
+        delay(1000);
+        digitalWrite(AMARILLO, 0);
+        digitalWrite(CELESTE, 0);
+        digitalWrite(ROJO, 0);
+        digitalWrite(AZUL, 0);
+        digitalWrite(VIOLETA, 0);
+        delay(100);
+        break;
+
+      case 3:
+
+        tone(buzzer, 350, 250);  
+        digitalWrite(ledConstitucion, LOW);
+        digitalWrite(ledSanJuan, LOW);
+        digitalWrite(ledIndependencia, HIGH);
+        digitalWrite(ledMoreno, LOW);
+
+        //7seg 1
+        digitalWrite(CELESTE, HIGH);
+        digitalWrite(FUCSIA, HIGH);
+        delay(1000);
+        digitalWrite(CELESTE, LOW);
+        digitalWrite(FUCSIA, LOW);
+        delay(100);
+        Serial.println(FUCSIA);
+
+        break;
+
+      case 4:
+
+        tone(buzzer, 400, 250);
+        digitalWrite(ledConstitucion, LOW);
+        digitalWrite(ledSanJuan, LOW);
+        digitalWrite(ledIndependencia, LOW);
+        digitalWrite(ledMoreno, HIGH);
+
+        //0
+        digitalWrite(CELESTE, HIGH);
+        digitalWrite(AMARILLO, HIGH);
+        digitalWrite(NARANJA, HIGH);
+        digitalWrite(VIOLETA, HIGH);
+        digitalWrite(FUCSIA, HIGH);
+        digitalWrite(AZUL, HIGH);
+        delay(1000);
+        digitalWrite(AMARILLO, 0);
+        digitalWrite(NARANJA, 0);
+        digitalWrite(VIOLETA, 0);
+        digitalWrite(FUCSIA, 0);
+        digitalWrite(AZUL, 0);
+        digitalWrite(CELESTE, 0);
+        delay(100);
+
+        delay(100);
+
+        break;
+
+
+    }
+
+
+    contador++;
+    
+  }  
+ 	
+}
